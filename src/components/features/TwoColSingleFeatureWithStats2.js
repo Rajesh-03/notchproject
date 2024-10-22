@@ -27,7 +27,7 @@ const EquipmentList = () => {
   const navigate = useNavigate(); // Initialize useNavigate
   const equipmentData = [
     {
-      title: "RMC Plant",
+      title: "RMC Plant(Madurai)",
       image: rmcplantImage,
       video: rmcplantVideo, // Add video property for RMC Plant
     },

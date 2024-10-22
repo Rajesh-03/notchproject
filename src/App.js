@@ -2,7 +2,7 @@ import React from "react";
 import GlobalStyles from 'styles/GlobalStyles';
 import { css } from "styled-components/macro"; //eslint-disable-line
 import firstvideo from "./images/rmc.mp4"
-import c1v from "./images/projectimg/c1/c1.MP4"
+import c1v from "./images/projectimg/c1/c1.mp4"
 import c1a from "./images/projectimg/c1/c1.JPG"
 import c1b from "./images/projectimg/c1/c1.1.JPG"
 import c2v from "./images/projectimg/c2/c2.MP4"
