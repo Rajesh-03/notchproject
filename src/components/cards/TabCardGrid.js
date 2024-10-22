@@ -90,6 +90,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-80 w-80 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
+
 export default ({
   heading = "Checkout the Menu",
   tabs = {
@@ -97,23 +98,43 @@ export default ({
       {
         project_id: 1,
         imageSrc:
-            "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
-        title: "Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
-        location: "Namakkal - Karur Toll Road, Tamil Nadu",
-        client: "Tamil Nadu Highways Department ",
-        content: " Kamarajar Bridge to Varanasi - Kanyakumari road (NH-44) Near Samayanallur (MDU-213)",
-        estimated_cost: "Rs. 54.60 Cr/- inc. GST"
-      },
-      {
-        project_id: 12,
-        imageSrc:
-        "https://images.jdmagicbox.com/comp/kolkata/83/033p400883/catalogue/reliance-infrastructure-ltd-circus-avenue-kolkata-estate-agents-aimner8zst-250.jpg",
-        title: "VUP and PUP at Thanichiyam at Km 414+650",
-        location: "Trichy Karur Toll Road, Tamil Nadu",
-        client: "Reliance Infrastructure Limited",
-        supervision: "BOT Concessionaire NHAI",
-        content: "Rs. 67.84 Cr/- inc. GST"
-    }
+            "https://vajiram-prod.s3.ap-south-1.amazonaws.com/National_Highways_Authority_of_India_NHAI_2b16a244df.jpg",
+        title: "(pending)Overlay and Repairs in Madurai – Kanyakumari Section of NH-7 in the State of Tamil Nadu.",
+       
+        content: "CUBE Highways, NHAI, PIU – Madurai",
+        client: "NHAI PIU, Madurai",
+        estimated_cost: "Rs. 59.89 Cr/-"
+    },
+    {
+      project_id: 2,
+      imageSrc:
+          "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
+      title: "Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
+      location: "Namakkal - Karur Toll Road, Tamil Nadu",
+      client: "Tamil Nadu Highways Department ",
+      content: " Kamarajar Bridge to Varanasi - Kanyakumari road (NH-44) Near Samayanallur (MDU-213)",
+      estimated_cost: "Rs. 54.60 Cr/- inc. GST"
+    },
+    {
+      project_id:3,
+      imageSrc:
+      "https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
+      title: "(pending)Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
+      location: "Trichy Karur Toll Road, Tamil Nadu",
+      client: "Reliance Infrastructure Limited",
+      supervision: "BOT Concessionaire NHAI",
+      content: "Rs. 67.84 Cr/- inc. GST"
+  },
+  {
+    project_id: 4,
+    imageSrc:
+    "https://images.jdmagicbox.com/comp/kolkata/83/033p400883/catalogue/reliance-infrastructure-ltd-circus-avenue-kolkata-estate-agents-aimner8zst-250.jpg",
+    title: "VUP and PUP at Thanichiyam at Km 414+650",
+    location: "Trichy Karur Toll Road, Tamil Nadu",
+    client: "Reliance Infrastructure Limited",
+    supervision: "BOT Concessionaire NHAI",
+    content: "Rs. 67.84 Cr/- inc. GST"
+}
       
     ],
     Completed: [
@@ -128,7 +149,17 @@ export default ({
         estimated_cost: "Rs. 59.89 Cr/-"
     },
     {
-      project_id: 12,
+      project_id: 6,
+      imageSrc:
+          "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
+      title: " (pending)Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
+      location: "Namakkal - Karur Toll Road, Tamil Nadu",
+      client: "Tamil Nadu Highways Department ",
+      content: " Kamarajar Bridge to Varanasi - Kanyakumari road (NH-44) Near Samayanallur (MDU-213)",
+      estimated_cost: "Rs. 54.60 Cr/- inc. GST"
+    },
+    {
+      project_id: 7,
       imageSrc:
       "https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
       title: "Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
@@ -136,37 +167,59 @@ export default ({
       client: "Reliance Infrastructure Limited",
       supervision: "BOT Concessionaire NHAI",
       content: "Rs. 67.84 Cr/- inc. GST"
-  }
+  },
+  {
+    project_id: 8,
+    imageSrc:
+    "https://images.jdmagicbox.com/comp/kolkata/83/033p400883/catalogue/reliance-infrastructure-ltd-circus-avenue-kolkata-estate-agents-aimner8zst-250.jpg",
+    title: "(pending)VUP and PUP at Thanichiyam at Km 414+650",
+    location: "Trichy Karur Toll Road, Tamil Nadu",
+    client: "Reliance Infrastructure Limited",
+    supervision: "BOT Concessionaire NHAI",
+    content: "Rs. 67.84 Cr/- inc. GST"
+}
   ],
     Signature:  [
       {
-          project_id: 9,
-          imageSrc:"https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
-          title: "Widening from Two Lane to Four Lane and Improvements",
-          location: "Tambaram - Mudichur - Sriperumbudur Road",
-          client: "Tamil Nadu Highways Department",
-          division: "Construction and Maintenance Wing",
-          content: "Rs. 95 Cr/- inc. GST"
-      },
-      {
-          project_id: 10,
-          imageSrc:
-          "https://images.jdmagicbox.com/comp/kolkata/83/033p400883/catalogue/reliance-infrastructure-ltd-circus-avenue-kolkata-estate-agents-aimner8zst-250.jpg",
-          title: "Construction of Widening of Two Lane to Four Lane bypasses",
-          location: "Salem – Ulundurpet Section",
-          client: "Reliance Infrastructure Limited",
-          supervision: "BOT Concessionaire Supervision of PD NHAI, PIU – Salem",
-         content: "Rs. 254.78 Cr/- inc. GST"
-      },
-      {
-          project_id: 11,
-          imageSrc:"https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
-          title: "Renewal proposal for Nagapattinam – Gudalur – Mysore Road",
-          location: "NH 67 (New No: 83)",
-          client: "MORTH National Highways Madurai Circle",
-          content: "Rs. 98 Cr/- inc. GST"
-      },
-  
+        project_id: 9,
+        imageSrc:
+            "https://vajiram-prod.s3.ap-south-1.amazonaws.com/National_Highways_Authority_of_India_NHAI_2b16a244df.jpg",
+        title: "Overlay and Repairs in Madurai – Kanyakumari Section of NH-7 in the State of Tamil Nadu.",
+       
+        content: "CUBE Highways, NHAI, PIU – Madurai",
+        client: "NHAI PIU, Madurai",
+        estimated_cost: "Rs. 59.89 Cr/-"
+    },
+    {
+      project_id: 10,
+      imageSrc:
+          "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
+      title: "Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
+      location: "Namakkal - Karur Toll Road, Tamil Nadu",
+      client: "Tamil Nadu Highways Department ",
+      content: " Kamarajar Bridge to Varanasi - Kanyakumari road (NH-44) Near Samayanallur (MDU-213)",
+      estimated_cost: "Rs. 54.60 Cr/- inc. GST"
+    },
+    {
+      project_id: 11,
+      imageSrc:
+      "https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
+      title: "Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
+      location: "Trichy Karur Toll Road, Tamil Nadu",
+      client: "Reliance Infrastructure Limited",
+      supervision: "BOT Concessionaire NHAI",
+      content: "Rs. 67.84 Cr/- inc. GST"
+  },
+  {
+    project_id: 12,
+    imageSrc:
+    "https://images.jdmagicbox.com/comp/kolkata/83/033p400883/catalogue/reliance-infrastructure-ltd-circus-avenue-kolkata-estate-agents-aimner8zst-250.jpg",
+    title: "VUP and PUP at Thanichiyam at Km 414+650",
+    location: "Trichy Karur Toll Road, Tamil Nadu",
+    client: "Reliance Infrastructure Limited",
+    supervision: "BOT Concessionaire NHAI",
+    content: "Rs. 67.84 Cr/- inc. GST"
+}
   ]
   }
 }) => {
