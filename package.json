@@ -6,6 +6,8 @@
     "@canvasjs/react-charts": "^1.0.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.1.1",
     "@nextui-org/react": "^2.4.8",
@@ -41,7 +43,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.11",
     "swiper": "^11.1.14",
-    "twin.macro": "^3.0.0-rc.4"
+    "twin.macro": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

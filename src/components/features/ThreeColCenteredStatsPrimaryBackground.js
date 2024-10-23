@@ -7,14 +7,14 @@ import { SectionDescription } from "components/misc/Typography";
 // Styling
 const Container = tw(ContainerBase)` bg-[#00354f] text-gray-100 -mx-8 px-8`;
 const HeadingContainer = tw.div``;
-const Heading = tw(SectionHeading)`sm:text-3xl md:text-4xl lg:text-5xl`;
-const Subheading = tw(SubheadingBase)`text-gray-100 text-center`;
-const Description = tw(SectionDescription)`text-gray-400 text-center mx-auto max-w-screen-md`;
+const Heading = tw(SectionHeading)`sm:text-2xl md:text-3xl lg:text-4xl`; // Decreased font size
+const Subheading = tw(SubheadingBase)`text-gray-100 text-center text-lg`; // Decreased font size
+const Description = tw(SectionDescription)`text-gray-400 text-center mx-auto max-w-screen-md text-sm`; // Decreased font size
 
 const StatsContainer = tw.div`mt-8 flex flex-col sm:flex-row items-center justify-center flex-wrap max-w-screen-md justify-between mx-auto`;
 const Stat = tw.div`flex flex-col text-center p-4 tracking-wide`;
-const StatKey = tw.div`text-xl font-medium`;
-const StatValue = tw.div`text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-black`;
+const StatKey = tw.div`text-lg font-medium`; // Decreased font size
+const StatValue = tw.div`text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-black`; // Decreased font size
 
 export default ({
   subheading = "",
@@ -95,25 +95,26 @@ export default ({
     }
   }, [isVisible, stats]);
 
-  return (<div style={{ backgroundColor: "#00354f" }}>
-  <Container ref={sectionRef}> {/* Add ref to the container */}
-      <ContentWithPaddingXl>
-        <HeadingContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          <Heading>{heading}</Heading>
-          {description && <Description>{description}</Description>}
-        </HeadingContainer>
-        <StatsContainer>
-          {stats.map((stat, index) => (
-            <Stat key={index}>
-              <StatValue>{currentStats[index]}</StatValue> {/* Display the current stat value */}
-              <StatKey>{stat.key}</StatKey>
-            </Stat>
-          ))}
-        </StatsContainer>
-      </ContentWithPaddingXl>
-    </Container>
-  </div>
-  
+  return (
+    <div style={{ backgroundColor: "#00354f" }}>
+      <Container ref={sectionRef}> {/* Add ref to the container */}
+        <ContentWithPaddingXl>
+          <HeadingContainer>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            <Heading>{heading}</Heading>
+            {description && <Description>{description}</Description>}
+          </HeadingContainer>
+          <StatsContainer>
+            {stats.map((stat, index) => (
+              <Stat key={index}>
+                <StatValue>{currentStats[index]}</StatValue> {/* Display the current stat value */}
+                <StatKey>{stat.key}</StatKey>
+              </Stat>
+            ))}
+          </StatsContainer>
+        </ContentWithPaddingXl>
+      </Container>
+    </div>
   );
 };
+ 

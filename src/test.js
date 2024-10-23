@@ -1,62 +1,111 @@
+import React, { useState } from 'react';
+import user from "../../images/user 2.png"
 
-
-
-
-
-/* Other CSS rules remain unchanged */
-
-const founderMessages = [
-   {
-     title: "Founder's Thoughts",
-     message: `
-       From Our Founder
-       As we celebrate our achievements, we are filled with optimism about our future prospects.
-     `,
-     name: "A.D. Meenaachi Sundram",
-     position: "FOUNDER AND MANAGING PARTNER",
-     image: "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
-   },
-   {
-     title: "Manager's Vision",
-     message: `
-       Our journey is one of constant innovation and adaptation to the evolving business environment. We continue to inspire new generations.
-     `,
-     name: "M. Vetrivel Rajan",
-     position: "MANAGING PARTNER",
-     image: "https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg",
-   },
-   {
-     title: "Partner's Mission",
-     message: `
-       We are driven by the desire to create sustainable solutions that enhance the quality of life globally. Our mission stands strong as we expand internationally.
-     `,
-     name: "B.Murugeshwari",
-     position: "PARTNER",
-     image: "https://i.pinimg.com/474x/0a/a8/58/0aa8581c2cb0aa948d63ce3ddad90c81.jpg",
-   }
- ];
- const scrollToSection = (elementRef) => {
-  elementRef.current.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
+// Sample employee data with images
+const teamData = {
+  projectManagers: [
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
+    
+  ],
+  qualityControl: [
+    { name: 'Charlie', job: 'Quality Control Specialist', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
+    { name: 'Dave', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+    { name: 'Emma', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+    { name: 'Fred', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+    { name: 'Gina', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+    { name: 'Hank', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+  ],
+  quantitySurveyors: [
+    { name: 'Eve', job: 'Quantity Surveyor', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+  ],
+  structuralEngineers: [
+    { name: 'Frank', job: 'Structural Engineer', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
+  ],
+  highwayEngineers: [
+    { name: 'Grace', job: 'Highway Engineer', study: 'M.Tech', image: 'https://via.placeholder.com/150' },
+  ],
+  safetyEngineers: [
+    { name: 'Heidi', job: 'Safety Engineer', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
+  ],
+  generalEngineers: [
+    { name: 'Ivan', job: 'General Engineer', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
+  ],
 };
 
- const navLinks = (
-  <NavLinks key={1}>
-    <NavLink onClick={() => scrollToSection(refs.homeRef)} style={{ color: "#0ed1b2" }}>Home</NavLink>
-    <NavLink onClick={() => scrollToSection(refs.projectRef)} style={{ color: isScrolled ? "black" : "black" }}>Projects</NavLink>
-    <NavLink onClick={() => scrollToSection(refs.EqpRef)} style={{ color: isScrolled ? "black" : "black" }}>Equipments</NavLink>
-    <NavLink onClick={() => scrollToSection(refs.TeamRef)} style={{ color: isScrolled ? "black" : "black" }}>Team</NavLink>
+const TeamMembers = () => {
+  const [selectedRole, setSelectedRole] = useState('projectManagers');
 
-    {/* Careers with Dropdown */}
-  
-      <NavLink style={{ color: isScrolled ? "black" : "black" }} className="career-link"  onClick={() => scrollToSection(refs.CareerRef)}>Careers</NavLink>
-      {/* <DropdownMenu>
-        <DropdownItem onClick={handleJobOpeningsClick}>Job Openings</DropdownItem>
-      </DropdownMenu> */}
+  const renderTeamMembers = (role) => {
+    return teamData[role].map((employee, index) => (
+      <div
+        key={index}
+        style={{
+          textAlign: 'center', // Center align the content
+          marginBottom: '30px',
+          flex: '0 1 calc(16.66% - 20px)', // Fit 6 items per row
+          boxSizing: 'border-box',
+        }}
+      >
+        <img
+          src={employee.image}
+          alt={employee.name}
+          style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            marginBottom: '15px',
+            objectFit: 'cover',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        />
+        <h3 style={{ fontSize: '20px', margin: '10px 0 5px 0' }}>{employee.name}</h3>
+        <p style={{ fontSize: '16px', margin: '5px 0' }}><strong>Job:</strong> {employee.job}</p>
+        <p style={{ fontSize: '16px', margin: '5px 0' }}><strong>Education:</strong> {employee.study}</p>
+      </div>
+    ));
+  };
 
+  return (
+    <div style={{ padding: '20px', backgroundColor: '#f4f8fc', minHeight: '100vh' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Our Team</h1>
 
-    <NavLink onClick={() => scrollToSection(refs.ContactRef)} style={{ color: isScrolled ? "black" : "black" }}>Contact Us</NavLink>
-  </NavLinks>
-);
+      {/* Tabs for roles */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
+        {Object.keys(teamData).map((role) => (
+          <button
+            key={role}
+            onClick={() => setSelectedRole(role)}
+            style={{
+              padding: '10px 20px',
+              margin: '0 10px',
+              backgroundColor: selectedRole === role ? '#007BFF' : '#ccc',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background-color 0.3s',
+            }}
+          >
+            {role
+              .replace(/([A-Z])/g, ' $1')
+              .replace(/^./, (str) => str.toUpperCase())} {/* Capitalize and add space */}
+          </button>
+        ))}
+      </div>
+
+      {/* Employee details directly */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+        {renderTeamMembers(selectedRole)}
+      </div>
+    </div>
+  );
+};
+
+export default TeamMembers;
