@@ -1,1 +1,6 @@
 *.MP4 filter=lfs diff=lfs merge=lfs -text
+src/images/crusher.mp4 filter=lfs diff=lfs merge=lfs -text
+src/images/projectimg/c1/c1.MP4 filter=lfs diff=lfs merge=lfs -text
+src/images/projectimg/c2/c2.MP4 filter=lfs diff=lfs merge=lfs -text
+src/images/projectimg/o1/o1.MP4 filter=lfs diff=lfs merge=lfs -text
+src/images/projectimg/o2/o2.MP4 filter=lfs diff=lfs merge=lfs -text
