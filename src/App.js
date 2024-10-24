@@ -3,23 +3,23 @@ import GlobalStyles from 'styles/GlobalStyles';
 import { css } from "styled-components/macro"; //eslint-disable-line
 import firstvideo from "./images/rmc.mp4"
 // import c1v from "./images/projectimg/c1/c1.mp4"
-import c1a from "./images/projectimg/c1/c1.JPG"
-import c1b from "./images/projectimg/c1/c1.1.JPG"
+// import c1a from "./images/projectimg/c1/c1.JPG"
+// import c1b from "./images/projectimg/c1/c1.1.JPG"
 // import c2v from "./images/projectimg/c2/c2.MP4"
-import c2a from "./images/projectimg/c2/c2.JPG"
-import c2b from "./images/projectimg/c2/c2.1.JPG"
-import c2c from "./images/projectimg/c2/c2.2.JPG"
+// import c2a from "./images/projectimg/c2/c2.JPG"
+// import c2b from "./images/projectimg/c2/c2.1.JPG"
+// import c2c from "./images/projectimg/c2/c2.2.JPG"
 // import o1v from "./images/projectimg/o1/o1.MP4"
-import o1a from "./images/projectimg/o1/o1.JPG"
-import o1b from "./images/projectimg/o1/o1.1.JPG"
+// import o1a from "./images/projectimg/o1/o1.JPG"
+// import o1b from "./images/projectimg/o1/o1.1.JPG"
 // import o2v from "./images/projectimg/o2/o2.MP4"
-import o2a from "./images/projectimg/o2/o2.JPG"
-import o2b from "./images/projectimg/o2/o2.1.JPG"
-import o2c from "./images/projectimg/o2/o2.2.JPG"
-import mdu from "./images/madurai.jpg"
-import tn from "./images/tn.jpg"
-import nhai from "./images/nhai.jpg"
-import reliance from "./images/reliance.jpg"
+// import o2a from "./images/projectimg/o2/o2.JPG"
+// import o2b from "./images/projectimg/o2/o2.1.JPG"
+// import o2c from "./images/projectimg/o2/o2.2.JPG"
+// import mdu from "./images/madurai.jpg"
+// import tn from "./images/tn.jpg"
+// import nhai from "./images/nhai.jpg"
+// import reliance from "./images/reliance.jpg"
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -40,11 +40,11 @@ export default function App() {
     {
       project_id: 1,
       videoSrc: firstvideo,
-      additionalImages: [
-        c1a,
-        c1b,
+      // additionalImages: [
+      //   c1a,
+      //   c1b,
   
-      ],
+      // ],
       imageSrc:
           "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7L_MyY3TeGcjuuF1BeLKUDGCDlZYEVmsX7zK4oJoZUECXkWbb3os5f00zm2H0J74_xAi2pNn3PtjYfGfOlpHMHUQzGavcwBNeYZapsPnX26JVCyZJ68hB6x7NqW0DYVFFaGwZb9eXhFDh/w250-h320/national-highways-authority-of-india.jpg",
       title: "Overlay and Repairs in Madurai – Kanyakumari Section of NH-7 in the State of Tamil Nadu.",
@@ -56,12 +56,12 @@ export default function App() {
   {
     project_id: 2,
     // videoSrc: o1v,
-    additionalImages: [
-      o1a,
-      o1b,
+    // additionalImages: [
+    //   o1a,
+    //   o1b,
 
-    ],
-    imageSrc:tn,
+    // ],
+    // imageSrc:tn,
     title: "Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
     location: "Thanjavur - Manamadurai Road, Tamil Nadu",
     client: "Tamil Nadu Highways Department ",
@@ -71,11 +71,11 @@ export default function App() {
   {
     project_id: 3,
     videoSrc: firstvideo,
-    additionalImages: [
-      c1a,
-      c1b,
+    // additionalImages: [
+    //   c1a,
+    //   c1b,
 
-    ],
+    // ],
     imageSrc:
     "https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
     title: "Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
@@ -87,14 +87,14 @@ export default function App() {
 {
   project_id: 4,
   // videoSrc: o2v,
-  additionalImages: [
-    o2a,
-    o2b,
-    o2c,
+  // additionalImages: [
+  //   o2a,
+  //   o2b,
+  //   o2c,
    
 
-  ],
-  imageSrc:reliance,
+  // ],
+  // imageSrc:reliance,
   
   title: "VUP and PUP at Thanichiyam at Km 414+650",
   location: "Thanichiyam, Tamil Nadu",
@@ -108,12 +108,12 @@ export default function App() {
     {
       project_id: 5,
       // videoSrc: c1v,
-      additionalImages: [
-          c1a,
-          c1b,
+      // additionalImages: [
+      //     c1a,
+      //     c1b,
     
-        ],
-      imageSrc:nhai,
+      //   ],
+      // imageSrc:nhai,
       title: "Overlay and Repairs in Madurai – Kanyakumari Section of NH-7 in the State of Tamil Nadu.",
      
       content: "CUBE Highways, NHAI, PIU – Madurai",
@@ -123,11 +123,11 @@ export default function App() {
   {
     project_id: 6,
     // videoSrc: c2v,
-    additionalImages: [
-      c1a,
-      c1b,
+    // additionalImages: [
+    //   c1a,
+    //   c1b,
 
-    ],
+    // ],
     imageSrc:
         "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
     title: "(pending)Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
@@ -139,13 +139,13 @@ export default function App() {
   {
     project_id: 7,
     // videoSrc:c2v,
-    additionalImages: [
-      c2a,
-      c2b,
-      c2c
+    // additionalImages: [
+    //   c2a,
+    //   c2b,
+    //   c2c
 
-    ],
-    imageSrc:mdu,
+    // ],
+    // imageSrc:mdu,
     title: "Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
     location: "Kuruveekaran Salai and Opula Padithurai, Tamil Nadu",
     client: "Municipal Corporation Madurai",
@@ -155,11 +155,11 @@ export default function App() {
 {
   project_id: 8,
   videoSrc: firstvideo,
-  additionalImages: [
-    c1a,
-    c1b,
+  // additionalImages: [
+  //   c1a,
+  //   c1b,
 
-  ],
+  // ],
   imageSrc:
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmEXcLvFqg_4mGMPWipI5k37gE2bpqdqqQKOmU_9zUX3UgpEJA8gRC90xJu0z7-m4qM4o&usqp=CAU",
   title: "VUP and PUP at Thanichiyam at Km 414+650",
@@ -173,11 +173,11 @@ export default function App() {
     {
       project_id: 9,
       videoSrc: firstvideo,
-      additionalImages: [
-        c1a,
-        c1b,
+      // additionalImages: [
+      //   c1a,
+      //   c1b,
   
-      ],
+      // ],
       imageSrc:
           "https://vajiram-prod.s3.ap-south-1.amazonaws.com/National_Highways_Authority_of_India_NHAI_2b16a244df.jpg",
       title: "Overlay and Repairs in Madurai – Kanyakumari Section of NH-7 in the State of Tamil Nadu.",
@@ -189,11 +189,11 @@ export default function App() {
   {
     project_id: 10,
     videoSrc: firstvideo,
-    additionalImages: [
-      c1a,
-      c1b,
+    // additionalImages: [
+    //   c1a,
+    //   c1b,
 
-    ],
+    // ],
     imageSrc:
         "https://s3.ap-south-1.amazonaws.com/media.thesouthfirst.com/wp-content/uploads/2024/07/Tamil-Nadu-government-logo.jpg",
     title: "Formation of Bypass to Sivagangai Town branching from km 129/2 of Thanjavur - Manamadurai Road SHU (Sivagangai Urban Stretch) and merging with Thanjavur - Manamadurai Road NH226 (NHAI Road) at km 141/8 (Length 10.80km) Phase 1 - Km 0/0 - 7/6",
@@ -205,11 +205,11 @@ export default function App() {
   {
     project_id: 11,
     videoSrc: firstvideo,
-    additionalImages: [
-      c1a,
-      c1b,
+    // additionalImages: [
+    //   c1a,
+    //   c1b,
 
-    ],
+    // ],
     imageSrc:
     "https://i0.wp.com/complainthub.org/wp-content/uploads/2024/03/Corporation-of-Madurai-Logo.png?fit=720%2C480&ssl=1",
     title: "Replacement of Causeway To High-Level Bridge Across River Vaigai Causeway (Kuruveekaran Salai and Opula Padithurai) With Approach Road Connecting Anna Nagar Main Road To Kamarajar Salai Under I & A Fund- 2019.",
@@ -221,11 +221,11 @@ export default function App() {
 {
   project_id: 12,
   videoSrc: firstvideo,
-  additionalImages: [
-    c1a,
-    c1b,
+  // additionalImages: [
+  //   c1a,
+  //   c1b,
 
-  ],
+  // ],
   imageSrc:
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmEXcLvFqg_4mGMPWipI5k37gE2bpqdqqQKOmU_9zUX3UgpEJA8gRC90xJu0z7-m4qM4o&usqp=CAU",
   
