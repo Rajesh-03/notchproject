@@ -5,21 +5,21 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { SectionDescription } from "components/misc/Typography";
 
 // Styling
-const Container = tw(ContainerBase)` bg-[#00354f] text-gray-100 -mx-8 px-8`;
-const HeadingContainer = tw.div``;
-const Heading = tw(SectionHeading)`sm:text-2xl md:text-3xl lg:text-4xl`; // Decreased font size
-const Subheading = tw(SubheadingBase)`text-gray-100 text-center text-lg`; // Decreased font size
-const Description = tw(SectionDescription)`text-gray-400 text-center mx-auto max-w-screen-md text-sm`; // Decreased font size
+const Container = tw(ContainerBase)`bg-[#00354f] text-gray-100 -mx-8 px-8 py-20`;
+const HeadingContainer = tw.div`mb-12`;
+const Heading = tw(SectionHeading)`text-center sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white`; // Centered heading with large size
+const Subheading = tw(SubheadingBase)`text-gray-100 text-center text-lg`;
+const Description = tw(SectionDescription)`text-gray-400 text-center mx-auto max-w-screen-md text-base`;
 
-const StatsContainer = tw.div`mt-8 flex flex-col sm:flex-row items-center justify-center flex-wrap max-w-screen-md justify-between mx-auto`;
-const Stat = tw.div`flex flex-col text-center p-4 tracking-wide`;
-const StatKey = tw.div`text-lg font-medium`; // Decreased font size
-const StatValue = tw.div`text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-black`; // Decreased font size
+const StatsContainer = tw.div`mt-12 flex flex-col sm:flex-row items-center justify-center flex-wrap max-w-screen-md mx-auto gap-8`;
+const Stat = tw.div`flex flex-col text-center p-6 tracking-wide bg-white rounded-lg shadow-lg transition-all transform hover:scale-105 duration-300 ease-out`;
+const StatKey = tw.div`text-sm font-semibold text-gray-700 uppercase tracking-wider`;
+const StatValue = tw.div`text-4xl font-extrabold text-[#00354f]`;
 
 export default ({
   subheading = "",
   heading = "Over 1500 Projects Completed",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description = "Explore our vast experience in handling projects. We ensure quality and efficiency with a proven track record.",
   stats = [
     {
       key: "Ongoing Projects",
@@ -45,28 +45,17 @@ export default ({
 
   // Intersection Observer to detect when the component comes into view
   useEffect(() => {
-    const currentSectionRef = sectionRef.current;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          if (currentSectionRef) {
-            observer.unobserve(currentSectionRef); // Stop observing once it's in view
-          }
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the component is visible
+      { threshold: 0.5 }
     );
-
-    if (currentSectionRef) {
-      observer.observe(currentSectionRef);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
-      if (currentSectionRef) {
-        observer.unobserve(currentSectionRef);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
@@ -77,27 +66,22 @@ export default ({
         return setInterval(() => {
           setCurrentStats((prevStats) => {
             const newStats = [...prevStats];
-            const incrementStep = Math.ceil(stat.value / 100); // Adjust speed by dividing total value
+            const incrementStep = Math.ceil(stat.value / 100);
             if (newStats[index] < stat.value) {
-              newStats[index] = Math.min(
-                newStats[index] + incrementStep,
-                stat.value
-              ); // Ensure it doesn't exceed the target
+              newStats[index] = Math.min(newStats[index] + incrementStep, stat.value);
             }
             return newStats;
           });
-        }, 30); // Faster update (30ms intervals for a rapid effect)
+        }, 50);
       });
 
-      return () => {
-        intervals.forEach(clearInterval); // Clear intervals when done
-      };
+      return () => intervals.forEach(clearInterval);
     }
   }, [isVisible, stats]);
 
   return (
-    <div style={{ backgroundColor: "#00354f" }}>
-      <Container ref={sectionRef}> {/* Add ref to the container */}
+    <div ref={sectionRef}>
+      <Container>
         <ContentWithPaddingXl>
           <HeadingContainer>
             {subheading && <Subheading>{subheading}</Subheading>}
@@ -107,7 +91,7 @@ export default ({
           <StatsContainer>
             {stats.map((stat, index) => (
               <Stat key={index}>
-                <StatValue>{currentStats[index]}</StatValue> {/* Display the current stat value */}
+                <StatValue>{currentStats[index]}</StatValue>
                 <StatKey>{stat.key}</StatKey>
               </Stat>
             ))}
@@ -117,4 +101,3 @@ export default ({
     </div>
   );
 };
- 

@@ -22,6 +22,7 @@ const Loader = ({ onLoadComplete }) => {
         src={logoimg}
         alt="Logo"
         style={styles.logo}
+        loading='lazy'
       />
 
       {/* Circular Progress Bar */}
@@ -70,7 +71,9 @@ const styles = {
     backgroundColor: 'white', // Keep the loader background white
   },
   logo: {
-    width: '100px', // Adjust width as needed
+    width: '100px', // Fixed width for the logo
+    height: '100px', // Fixed height for the logo to maintain aspect ratio
+    objectFit: 'contain', // Ensures the image fits well
     position: 'absolute',
   },
   progressCircle: {

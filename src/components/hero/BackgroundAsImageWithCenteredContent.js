@@ -1,179 +1,102 @@
-import React, { useState, useEffect } from "react";
-import tw from "twin.macro";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import Header, { NavLink, NavLinks } from "../headers/light.js";
-import img1 from "../../images/home2.JPG";
-import img2 from "../../images/home3.JPG";
-import img3 from "../../images/home4.JPG";
-import img4 from "../../images/home1.jpg";
-import { useNavigate } from "react-router-dom";
+import { MdClose } from "react-icons/md";
+import "./back.css";
+import logo from "../../images/logotransparent.png"
 
-// Styled Header with a bottom margin for spacing
-const StyledHeader = styled(Header)`
-  ${tw`fixed top-0 left-0 w-full z-30 transition-all duration-300`}
-  background-color: ${({ isScrolled }) =>
-    isScrolled ? "rgba(255, 255, 255, 0.95)" : "transparent"};
-  box-shadow: ${({ isScrolled }) =>
-    isScrolled ? "0 4px 12px rgba(0, 0, 0, 0.1)" : "none"};
-
-  ${NavLink} {
-    ${({ isScrolled }) =>
-      isScrolled
-        ? tw`hover:border-black hover:text-black text-black`
-        : tw`text-white hover:border-gray-300 hover:text-gray-300`}
-`;
-
-// Icon Container for the navigation arrows
-const IconContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  z-index: 20;
+// Styled components for the header and other elements can be defined here
+const Header = styled.header`
+  position: relative; /* Ensure it positions properly */
   display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  width: 100%;
-  padding: 0 20px;
+  align-items: center; /* Center align vertically */
+  padding: 1rem; /* Adjust padding as needed */
 `;
 
-// Styling for the arrows
-const Icon = styled.button`
-  ${tw`bg-gray-800 rounded-full p-3 shadow-lg`}
-  &:hover {
-    ${tw`bg-gray-700`}
+const Logo = styled.img`
+height: 120px; /* Keep height unchanged */
+  width: 120px; /* Keep width unchanged */
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+
+   @media (max-width: 768px) {
+    height: 90px; /* Keep height unchanged */
+    width: 90px; /* Keep width unchanged */
+    top: 0.5rem; /* Adjust top spacing */
+    left: 0.5rem; /* Adjust left spacing */
   }
-  color: #ffffff;
-  font-size: 24px;
 `;
 
-// Carousel images data
-const images = [
-  { src: img1, author: "Author 1", title: "Title 1", topic: "Topic 1" },
-  { src: img2, author: "Author 2", title: "Title 2", topic: "Topic 2" },
-  { src: img3, author: "Author 3", title: "Title 3", topic: "Topic 3" },
-  { src: img4, author: "Author 4", title: "Title 4", topic: "Topic 4" },
-];
+const TextBox = styled.div`
+  margin-left: 110px; /* Maintain margin for desktop */
 
-const FullWidthCarousel = ({ refs }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
+  @media (max-width: 768px) {
+    margin-left: 0; /* Remove margin for mobile */
+    padding: 1rem; /* Add padding for mobile */
+    text-align: center; /* Center text on mobile */
+  }
+`;
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+const Hero = ({ refs }) => {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuActive((prev) => !prev);
   };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Scroll listener to change NavLink color
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (elementRef) => {
     elementRef.current.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+    setMenuActive(false); // Close the menu after scrolling
   };
 
-  const navLinks = (
-    <NavLinks key={1}>
-      <NavLink onClick={() => scrollToSection(refs.homeRef)} style={{ color: "#0ed1b2" }}>Home</NavLink>
-      <NavLink onClick={() => scrollToSection(refs.projectRef)} style={{ color: isScrolled ? "black" : "black" }}>Projects</NavLink>
-      <NavLink onClick={() => scrollToSection(refs.EqpRef)} style={{ color: isScrolled ? "black" : "black" }}>Equipments</NavLink>
-      <NavLink onClick={() => scrollToSection(refs.TeamRef)} style={{ color: isScrolled ? "black" : "black" }}>Team</NavLink>
-      <NavLink style={{ color: isScrolled ? "black" : "black" }} className="career-link" onClick={() => scrollToSection(refs.CareerRef)}>Careers</NavLink>
-      <NavLink onClick={() => scrollToSection(refs.ContactRef)} style={{ color: isScrolled ? "black" : "black" }}>Contact Us</NavLink>
-    </NavLinks>
-  );
-
   return (
-    <>
-      <StyledHeader links={navLinks} isScrolled={isScrolled} />
-      {/* Adjusted carousel section */}
-      <div
-        id="carousel-section"
-        style={{
-          height: "calc(100vh - 130px)", // Ensures carousel maintains size based on paddingTop
-          overflow: "hidden",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "whitesmoke",
-          paddingTop: "130px", // Adjust this as needed
-        }}
-      >
-        <div
-          className="carousel"
-          style={{
-            height: "100%",
-            width: "95%", // Increased width of the carousel
-            position: "relative",
-            perspective: "1500px", // Adds 3D perspective
-          }}
-        >
-          <div className="list" style={{ height: "100%" }}>
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className={`item ${index === currentIndex ? "active" : ""}`}
-                style={{
-                  height: "100%",
-                  width: "100%",
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  transformStyle: "preserve-3d", // Important for 3D effect
-                  transform: index === currentIndex
-                    ? "rotateY(0deg)" // Active slide stays in place
-                    : "rotateY(180deg)", // Inactive slides flip away
-                  transition: "transform 0.8s ease-in-out",
-                  backfaceVisibility: "hidden", // Ensures clean flipping
-                }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.title}
-                  loading="lazy"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center",
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+    <Header className="header">
+      <Logo src={logo} alt="Company Logo" /> 
 
-          <IconContainer>
-            <Icon onClick={handlePrev}>
-              <MdArrowBack />
-            </Icon>
-            <Icon onClick={handleNext}>
-              <MdArrowForward />
-            </Icon>
-          </IconContainer>
+      <section>
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className="line-align1">
+            <div className="line line1"></div>
+          </div>
+          <div className="line-align2">
+            <div className="line line2"></div>
+          </div>
+          <div className="line-align3">
+            <div className="line line3"></div>
+          </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      <section className={`menu ${menuActive ? "active" : ""}`} id="menu">
+        <a onClick={() => scrollToSection(refs.homeRef)} className="text-gray">Home</a>
+        <a onClick={() => scrollToSection(refs.projectRef)} className="text-gray">Projects</a>
+        <a onClick={() => scrollToSection(refs.EqpRef)} className="text-gray">Equipments</a>
+        <a onClick={() => scrollToSection(refs.TeamRef)} className="text-gray">Team</a>
+        <a onClick={() => scrollToSection(refs.CareerRef)} className="text-gray">Careers</a>
+        <a onClick={() => scrollToSection(refs.ContactRef)} className="text-gray">Contact</a>
+        <div className="close-btn" id="closebtn" onClick={toggleMenu}>
+          <MdClose style={{ fontSize: "60px", cursor: "pointer", color: "white" }} alt="close icon" />
+        </div>
+      </section>
+
+      <TextBox className="text-box">
+  <div className="text-content">
+    <h1>Building the Roads of Tomorrow</h1>
+    <p>
+      At NotchIndiaProjects, we are dedicated to providing high-quality road construction services that pave the way for a brighter future. Our team of experts utilizes the latest technologies and techniques to ensure safe, durable, and efficient roadways for all.
+    </p>
+    <p>
+      From urban streets to highways, we manage every project with precision and care, ensuring that our infrastructure meets the needs of our growing communities. Together, let's create pathways to progress!
+    </p>
+    <button className="btn-link" style={{background:"#00354f",color:"white",textDecoration:"none"}} >Request a Consultation</button>
+  </div>
+</TextBox>
+
+    </Header>
   );
 };
 
-export default FullWidthCarousel;
+export default Hero;

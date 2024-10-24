@@ -1,0 +1,137 @@
+.hamburger {
+    background-color: transparent;
+    width: 65px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+    position: fixed;
+    top: 3rem;
+    right: 4.5rem; /* Changed from left to right */
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: #30bdcd; /* Updated to your desired color */
+    border-radius: 10px;
+}
+
+.line-align1,
+.line-align2,
+.line-align3 {
+    position: relative;
+    height: 3px;
+}
+
+.line1 {
+    position: absolute;
+    left: 45%;
+    transition: all 0.5s ease-in-out;
+}
+
+.line2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease-in-out;
+}
+
+.line3 {
+    position: absolute;
+    left: 0%;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburger:hover .line1 {
+    left: 23%;
+}
+
+.hamburger:hover .line3 {
+    left: 23%;
+}
+
+.menu {
+    background-color: #091528;
+    width: 20%; /* Adjust as needed for responsiveness */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -40%;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    gap: 1rem;
+}
+
+.menu a {
+    color: #D9D9D9; /* Default link color */
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer; /* Change cursor to pointer */
+    transition: color 0.3s; /* Smooth transition for the hover effect */
+}
+
+.menu a:hover {
+    color: #30bdcd; /* Hover color */
+}
+
+#menu.active {
+    left: 0;
+}
+
+.close-btn {
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        left: 0.1rem; /* Adjusted position for smaller screens */
+    }
+    
+    .menu {
+        width: 70%; /* Adjust the width for smaller screens */
+        left: -100%; /* Start off-screen */
+    }
+
+    #menu.active {
+        left: 0; /* Slide in when active */
+    }
+
+    .menu a {
+        font-size: 24px; /* Smaller font size for better fit */
+        padding: 1rem; /* Adjust padding if needed */
+    }
+
+    .close-btn {
+        left: 5%; /* Adjust position of close button */
+        top: 5%; /* Keep it visible */
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .menu {
+        width: 40%; /* Adjust for medium screens */
+    }
+
+    .menu a {
+        font-size: 28px; /* Slightly larger font for medium screens */
+    }
+}

@@ -1,0 +1,87 @@
+.team-container {
+    padding: 20px;
+    background-color: #f4f8fc;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .team-title {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tab-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .tab-button.active {
+    background-color: #00354f;
+    color: white;
+  }
+  
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .team-member {
+    text-align: center;
+    margin-bottom: 30px;
+    flex: 1 1 calc(25% - 20px); /* Default: 4 items per row */
+    box-sizing: border-box;
+  }
+  
+  .team-member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .team-member-name {
+    font-size: 20px;
+    margin: 10px 0 5px 0;
+  }
+  
+  .team-member-job,
+  .team-member-study {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 1200px) {
+    .team-member {
+      flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .team-member {
+      flex: 1 1 calc(50% - 20px); /* 2 items per row */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .team-member {
+      flex: 1 1 calc(100% - 20px); /* 1 item per row */
+    }
+  }
+  

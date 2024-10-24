@@ -9,10 +9,14 @@ import logoimg from "../../images/logotransparent.png";
 
 // Create StyledHeader with scrolling effect
 // Create StyledHeader with a fixed white background
-const StyledHeader = styled.header(() => [
+const StyledHeader = styled.header(({ isScrolled }) => [
   tw`flex justify-between items-center w-full fixed top-0 left-0 z-50 px-4 py-4 transition-all duration-300`, 
-  { backgroundColor: 'rgba(255, 255, 255, 1)', height: '90px' }, // Increase height from 70px to 90px
+  {
+    backgroundColor: isScrolled ? "white" : "transparent", // Change background color based on scroll
+    height: '90px' // Keep the increased height
+  },
 ]);
+
 
 
 export const NavLink = styled.a`

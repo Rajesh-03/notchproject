@@ -7,13 +7,16 @@ import Modal from "react-modal"; // Ensure you've installed react-modal
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const CareerBox = styled.div`
-  ${tw`p-10 sm:p-12 md:p-16 bg-[#00354f] text-white rounded-lg relative shadow-lg`}
+  ${tw`p-10 sm:p-12 md:p-16 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-lg relative shadow-lg`}
   
   h2 {
     ${tw`text-3xl sm:text-4xl font-bold`}
   }
 `;
-const CompanyEmail = tw.p`text-lg text-teal-300 font-medium mb-8`;
+
+
+
+const CompanyEmail = tw.p`text-lg text-teal-300 text-white font-medium mb-8`;
 const Button = styled.button`
   ${tw`mt-6 py-3 px-6 bg-teal-500 text-white rounded-full font-bold tracking-wide shadow-lg uppercase text-sm transition duration-300 transform focus:outline-none focus:shadow-outline hover:bg-teal-600 hocus:-translate-y-px hocus:shadow-xl`}
   margin-right: 1rem; // Gap between buttons

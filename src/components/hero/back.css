@@ -1,0 +1,331 @@
+:root {
+    --main-color: #4a2dff;
+    --text-color: #000;
+    --light-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header styles */
+.header {
+    position: relative;
+    background: url('../../images/herobg.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.logo h2 {
+    color: var(--light-color);
+}
+
+.text-box {
+    width: 50%;
+    padding: 0 75px;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+}
+
+.text-content h1 {
+    color: var(--light-color);
+    font-size: 4rem;
+}
+
+.text-content p {
+    color: var(--light-color);
+    margin: 12px 0;
+    font-size: 17px;
+}
+
+.text-content .btn-link {
+    padding: 1rem 2rem;
+   
+    cursor: pointer;
+}
+
+.text-content h1,
+.text-content p {
+    text-shadow: 2px 2px 2px #000;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: auto;
+    padding: 20px 75px;
+    transition: all 1s ease;
+}
+
+
+
+/* Hamburger menu styles */
+.hamburger {
+    background-color: transparent;
+    width: 65px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+    position: fixed;
+    top: 3rem;
+    right: 4.5rem; /* Keep hamburger menu on the right */
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: #30bdcd;
+    border-radius: 10px;
+}
+
+.line-align1,
+.line-align2,
+.line-align3 {
+    position: relative;
+    height: 3px;
+}
+
+.line1 {
+    position: absolute;
+    left: 45%;
+    transition: all 0.5s ease-in-out;
+}
+
+.line2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease-in-out;
+}
+
+.line3 {
+    position: absolute;
+    left: 0%;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburger:hover .line1 {
+    left: 23%;
+}
+
+.hamburger:hover .line3 {
+    left: 23%;
+}
+
+.menu {
+    background-color: #091528;
+    width: 20%; /* Adjust as needed for responsiveness */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -20%; /* Start off-screen to the right */
+    transition: right 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    gap: 1rem;
+}
+
+.menu a {
+    color: #D9D9D9; /* Default link color */
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #30bdcd; /* Hover color */
+}
+
+/* Use the active class to slide in from the right */
+.menu.active {
+    right: 0; /* Move into view when active */
+}
+
+.close-btn {
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 10px 25px;
+    }
+
+    .text-box {
+        width: 100%;
+        padding: 0 25px;
+    }
+
+    .text-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn-link {
+        padding: 10px 12px;
+    }
+
+    .menu {
+        width: 70%; /* Adjust for smaller screens */
+        right: -100%; /* Start off-screen */
+    }
+
+    .hamburger {
+        right: 1rem; /* Keep hamburger on the right */
+    }
+
+    .menu.active {
+        right: 0; /* Slide in when active */
+    }
+
+    .menu a {
+        font-size: 24px; /* Smaller font size for better fit */
+        padding: 1rem; /* Adjust padding if needed */
+    }
+
+    .close-btn {
+        left: 5%; /* Adjust position of close button */
+        top: 5%; /* Keep it visible */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+    .menu {
+        width: 40%; /* Adjust for medium screens */
+    }
+
+    .menu a {
+        font-size: 28px; /* Slightly larger font for medium screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .text-content h1 {
+        font-size: 3rem; /* Adjust for larger tablets */
+    }
+
+    .text-content p {
+        font-size: 18px; /* Adjust for larger tablets */
+    }
+}
+
+/* Responsive styles for small devices */
+@media (max-width: 600px) {
+    .header {
+        height: 100vh; /* Ensure full-screen height */
+        padding: 0; /* Remove extra padding */
+    }
+
+    .logo h2 {
+        font-size: 1.5rem; /* Smaller logo text for small screens */
+    }
+
+    .text-box {
+        width: 100%; /* Full width on small devices */
+        padding: 0 15px; /* Reduce padding */
+        text-align: center; /* Center the text for small screens */
+    }
+
+    .text-content h1 {
+        font-size: 2rem; /* Smaller font size for the title */
+    }
+
+    .text-content p {
+        font-size: 14px; /* Smaller font size for paragraph */
+    }
+
+    .btn-link {
+        font-size: 14px; /* Smaller button text */
+        padding: 8px 12px; /* Smaller padding for the button */
+        width: 100%; /* Full-width button on small screens */
+    }
+
+    .navbar {
+        padding: 10px 15px; /* Adjust navbar padding */
+    }
+
+    .hamburger {
+        top: 1rem; /* Adjust hamburger position */
+        right: 1rem; /* Move hamburger to the right */
+    }
+
+    .menu {
+        width: 70%; /* Adjust menu width for small screens */
+        right: -100%; /* Start off-screen */
+    }
+
+    .menu.active {
+        right: 0; /* Slide in when active */
+    }
+
+    .menu a {
+        font-size: 22px; /* Adjust font size for menu items */
+        padding: 1rem; /* Adjust padding */
+    }
+
+    .close-btn {
+        left: 5%; /* Adjust close button position */
+        top: 5%;
+    }
+
+    .logo {
+        height: 90px; /* Reduce logo size */
+        width: 90px; /* Reduce logo size */
+        left: 1rem; /* Adjust logo position */
+    }
+
+    .text-box {
+        margin-left: 0; /* No left margin on small devices */
+        padding: 1rem; /* Add padding to the text box */
+    }
+
+    .text-content h1 {
+        font-size: 1.8rem; /* Smaller heading font size */
+    }
+
+    .text-content p {
+        font-size: 14px; /* Smaller paragraph font size */
+    }
+
+    .btn-link {
+        padding: 10px 12px; /* Smaller button padding */
+        width: 100%; /* Full width button on mobile */
+    }
+}

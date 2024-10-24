@@ -1,111 +1,166 @@
-import React, { useState } from 'react';
-import user from "../../images/user 2.png"
+import React from "react";
+import tw from "twin.macro";
+import styled, { css } from "styled-components";
+import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings";
+import { SectionDescription } from "components/misc/Typography";
+import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
+import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import bg from "../../images/user.png"; // Default background image
 
-// Sample employee data with images
-const teamData = {
-  projectManagers: [
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    { name: 'Alice', job: 'Project Manager', study: 'MBA', image:user },
-    
-  ],
-  qualityControl: [
-    { name: 'Charlie', job: 'Quality Control Specialist', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
-    { name: 'Dave', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-    { name: 'Emma', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-    { name: 'Fred', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-    { name: 'Gina', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-    { name: 'Hank', job: 'Quality Control Specialist', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-  ],
-  quantitySurveyors: [
-    { name: 'Eve', job: 'Quantity Surveyor', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-  ],
-  structuralEngineers: [
-    { name: 'Frank', job: 'Structural Engineer', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
-  ],
-  highwayEngineers: [
-    { name: 'Grace', job: 'Highway Engineer', study: 'M.Tech', image: 'https://via.placeholder.com/150' },
-  ],
-  safetyEngineers: [
-    { name: 'Heidi', job: 'Safety Engineer', study: 'B.Sc', image: 'https://via.placeholder.com/150' },
-  ],
-  generalEngineers: [
-    { name: 'Ivan', job: 'General Engineer', study: 'B.Tech', image: 'https://via.placeholder.com/150' },
-  ],
-};
+const HeadingContainer = tw.div``;
+const Heading = tw(SectionHeading)`text-[#008C8C]`;
+const Subheading = tw(SubheadingBase)`text-center mb-3`;
+const Description = tw(SectionDescription)`mx-auto text-center`;
 
-const TeamMembers = () => {
-  const [selectedRole, setSelectedRole] = useState('projectManagers');
+const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`;
+const Card = styled.div`
+  ${tw`mt-8 w-full sm:w-1/2 lg:w-1/3 flex flex-col items-center relative`}
+  border-radius: 8px;
+  overflow: hidden;
+`;
 
-  const renderTeamMembers = (role) => {
-    return teamData[role].map((employee, index) => (
-      <div
-        key={index}
-        style={{
-          textAlign: 'center', // Center align the content
-          marginBottom: '30px',
-          flex: '0 1 calc(16.66% - 20px)', // Fit 6 items per row
-          boxSizing: 'border-box',
-        }}
-      >
-        <img
-          src={employee.image}
-          alt={employee.name}
-          style={{
-            width: '150px',
-            height: '150px',
-            borderRadius: '50%',
-            marginBottom: '15px',
-            objectFit: 'cover',
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        />
-        <h3 style={{ fontSize: '20px', margin: '10px 0 5px 0' }}>{employee.name}</h3>
-        <p style={{ fontSize: '16px', margin: '5px 0' }}><strong>Job:</strong> {employee.job}</p>
-        <p style={{ fontSize: '16px', margin: '5px 0' }}><strong>Education:</strong> {employee.study}</p>
-      </div>
-    ));
-  };
+const CardWrapper = styled.div`
+  ${tw`relative w-64 h-64 flex items-center justify-center`}
+  background-color: ${({ bgColor }) => bgColor || "#f0f0f0"};
+  transition: background-color 0.3s ease, background-image 0.3s ease;
 
+  &:hover {
+    background-image: url(https://banner2.cleanpng.com/lnd/20240923/rl/526393fc6e3225de29a6ef4774e303.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+`;
+
+const CardImage = styled.div`
+  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${tw`w-64 h-64 bg-contain bg-center rounded`}
+`;
+
+const CardContent = styled.div`
+  ${tw`flex flex-col items-center mt-4`}
+  .position {
+    ${tw`uppercase font-bold tracking-widest text-xs text-[#008C8C]`}
+  }
+  .name {
+    ${tw`mt-1 text-xl font-medium text-gray-900`}
+  }
+`;
+
+const CardLinks = styled.div`
+  ${tw`mt-4 flex`}
+  .link {
+    ${tw`mr-4 last:mr-0 text-gray-400 hocus:text-primary-500 transition duration-300`}
+    .icon {
+      ${tw`fill-current w-6 h-6`}
+    }
+  }
+`;
+
+export default ({
+  heading = "Meet These Fine Folks.",
+  subheading = "Our Team",
+  cards = [
+    {
+      imageSrc: bg,
+      position: "Project Manager",
+      name: "VIMALATHITHAN S",
+       bgColor: "#ffcccb",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+    {
+      imageSrc: "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727308800&semt=ais_hybrid",
+      position: "Project Manager",
+       bgColor: "#ffcccb",
+      name: "SIVAPERUMAL A",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+    {
+      imageSrc: "https://img.freepik.com/free-psd/3d-illustration-person-with-glasses_23-2149436190.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727308800&semt=ais_hybrid",
+      position: "Project Manager",
+       bgColor: "#ffcccb",
+      name: "RAJAVEL M",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+    {
+      imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjA2CIxDijGpPGTE_CVqFk1PEFOh9zq_2AI_vX-0L6qaEPqvARomVuYOZbpgss9ak7Rvk&usqp=CAU",
+      position: "Project Manager",
+       bgColor: "#ffcccb",
+      name: "PRAKASH KANNAN",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+    {
+      imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLljN7sbq1RgM_oT85l-VSYiMZ2C_zzkLkjZ4gIV7ivI-Miu5dnZLTFQQRN2pDL0ojYpQ&usqp=CAU",
+      position: "Project Manager",
+       bgColor: "#ffcccb",
+      name: "ARJUNA PANDI V",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+    {
+      imageSrc: "https://img.freepik.com/premium-psd/3d-character-young-man-with-suit-short-hair_792170-61.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726704000&semt=ais_hybrid",
+      position: "Project Manager",
+       bgColor: "#ffcccb",
+      name: "PRABU M",
+      links: [
+        { url: "https://twitter.com", icon: TwitterIcon },
+        { url: "https://linkedin.com", icon: LinkedinIcon },
+        { url: "https://github.com", icon: GithubIcon },
+      ],
+    },
+  ]
+}) => {
   return (
-    <div style={{ padding: '20px', backgroundColor: '#f4f8fc', minHeight: '100vh' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Our Team</h1>
-
-      {/* Tabs for roles */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
-        {Object.keys(teamData).map((role) => (
-          <button
-            key={role}
-            onClick={() => setSelectedRole(role)}
-            style={{
-              padding: '10px 20px',
-              margin: '0 10px',
-              backgroundColor: selectedRole === role ? '#007BFF' : '#ccc',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              transition: 'background-color 0.3s',
-            }}
-          >
-            {role
-              .replace(/([A-Z])/g, ' $1')
-              .replace(/^./, (str) => str.toUpperCase())} {/* Capitalize and add space */}
-          </button>
-        ))}
-      </div>
-
-      {/* Employee details directly */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
-        {renderTeamMembers(selectedRole)}
-      </div>
+    <div style={{ backgroundColor: "whitesmoke" }}>
+      <Container>
+        <ContentWithPaddingXl>
+          <HeadingContainer>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            {heading && <Heading>{heading}</Heading>}
+          </HeadingContainer>
+          <Cards>
+            {cards.map((card, index) => (
+              <Card key={index}>
+                <CardWrapper bgColor={card.bgColor}>
+                  <CardImage imageSrc={card.imageSrc} />
+                </CardWrapper>
+                <CardContent>
+                  <span className="position">{card.position}</span>
+                  <span className="name">{card.name}</span>
+                  <CardLinks>
+                    {card.links.map((link, linkIndex) => (
+                      <a key={linkIndex} className="link" href={link.url}>
+                        <link.icon className="icon" />
+                      </a>
+                    ))}
+                  </CardLinks>
+                </CardContent>
+              </Card>
+            ))}
+          </Cards>
+        </ContentWithPaddingXl>
+      </Container>
     </div>
   );
 };
-
-export default TeamMembers;

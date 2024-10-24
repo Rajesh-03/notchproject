@@ -1,111 +1,184 @@
-.wrapper {
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Encode Sans", sans-serif;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Common Styles */
+.custom-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.custom-container2 {
+    width: 97%;
+    display: flex;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #272727;
+}
+
+.founder-container {
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    position: relative;
+    background-color: #081427;
     display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    background-color: whitesmoke; /* Background color */
+    align-items: center;
+    background-position: 103% bottom;
+    background-size: 52%;
+    background-repeat: no-repeat;
 }
-.container {
-    margin-left: 90px; /* Adjust as needed */
-    height: 500px; /* Increase height of the container */
+
+.founder-container .custom-container {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: start; /* Align items to the start */
+    justify-content: flex-end;
 }
 
-.card {
-    position: relative; /* Necessary for positioning overlay */
-    width: 150px; /* Card width */
-    height: 250px; /* Card height */
-    border-radius: 2rem; /* Rounded corners */
-    background-size: cover; /* Ensure background covers the card */
-    cursor: pointer;
-    overflow: hidden;
-    margin: 0 15px; /* Adjust margin for spacing */
+.founder-container .custom-container2 {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    transition: transform 0.3s, opacity 0.3s; /* Smooth transition for hover */
-    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8); /* Shadow for visibility */
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.card-image {
-    max-width: 100%; /* Ensure image doesn't exceed card width */
-    max-height: 100%; /* Ensure image doesn't exceed card height */
-    object-fit: cover; /* Ensure the image covers the card area */
-    border-radius: 2rem; /* Match card corners */
-    display: block; /* Ensure it behaves as a block element */
+.founder-img {
+    width: calc(50% - 1rem);
+    line-height: 0;
+    display: flex;
+    justify-content: flex-start;
 }
 
-
-.overlay {
-    position: absolute; /* Position overlay absolutely */
-    top: 0; /* Cover the entire card */
-    left: 0; /* Cover the entire card */
-    right: 0; /* Cover the entire card */
-    bottom: 0; /* Cover the entire card */
-    display: flex; /* Use flex to center text */
-    flex-direction: column; /* Stack text vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    color: white; /* Text color */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s; /* Smooth transition for hover */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    padding: 20px; /* Add padding for better spacing */
-    text-align: center; /* Center align text */
+.founder-img div {
+    display: flex;
+    align-items: flex-end;
 }
 
-.card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
+.founder-img div img {
+    width: 100%;
 }
 
-.card-title {
-    color: #FFD700; /* Attractive gold color */
-    font-size: 1.5rem; /* Font size */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
-    margin: 10px 0; /* Spacing above and below */
-    z-index: 1; /* Ensure text is above overlay */
+.founder-content {
+    width: calc(50% - 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: #FFF;
+    position: relative;
+    z-index: 99;
+    padding: 6rem 0;
 }
 
-.overlay p {
-    color: #E0E0E0; /* Light gray for message text */
-    font-size: 1rem; /* Font size for the message */
-    margin: 10px 0; /* Spacing */
+.founder-content h2 {
+    color: #FFF;
+    font-size: 40px;
 }
 
-.overlay h3 {
-    color: #FFFFFF; /* White color for the name */
-    font-size: 1.2rem; /* Font size for the name */
-    font-weight: bold; /* Bold text */
-    margin: 5px 0; /* Spacing */
+.founder-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.overlay h4 {
-    color: #CCCCCC; /* Light gray for the position */
-    font-size: 1rem; /* Font size for the position */
-    font-style: italic; /* Italic style */
-    margin: 5px 0; /* Spacing */
+.founder-notes p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    max-width: 700px;
 }
 
-/* Background colors for cards */
-.card[for="c1"],
-.card[for="c2"],
-.card[for="c3"] {
-    background-color: #008C8C; /* Same background color for all cards */
+.founder-notes b {
+    font-size: 20px;
+    font-weight: 600;
 }
 
-/* Radio buttons (hidden) */
-input {
-    display: none; /* Hide radio buttons */
+/* Media Queries for Responsiveness */
+
+/* Between 850px and 480px (Tablets and Small Devices) */
+@media (max-width: 850px) {
+    .custom-container2 {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .founder-content, .founder-img {
+        width: 100%;
+        text-align: center;
+    }
+
+    .founder-content {
+        padding: 4rem 0;
+    }
+
+    .founder-notes p {
+        font-size: 18px;
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .founder-content h2 {
+        font-size: 32px;
+    }
+
+    .founder-img div img {
+        width: 80%;
+    }
 }
 
-/* Styles for when input is checked */
-input:checked + label {
-    width: 700px; /* Increase width when checked */
-}
+/* Small devices (up to 480px) */
+@media (max-width: 480px) {
+    .custom-container2 {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-input:checked + label .overlay {
-    opacity: 1 !important; /* Show overlay when the corresponding input is checked */
+    .founder-content, .founder-img {
+        width: 100%;
+        text-align: center;
+    }
+
+    .founder-content {
+        padding: 2rem 0;
+    }
+
+    .founder-notes p {
+        font-size: 16px;
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .founder-content h2 {
+        font-size: 28px;
+    }
+
+    .founder-notes p {
+        font-size: 14px;
+    }
+
+    .founder-img div img {
+        width: 80%;
+    }
 }

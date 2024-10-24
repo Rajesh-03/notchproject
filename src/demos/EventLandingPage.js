@@ -42,10 +42,7 @@ const MainComponent = () => {
     localStorage.setItem('theme', theme); // Save theme preference in localStorage
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
+ 
   return (
     <>
       {loading ? (
@@ -55,17 +52,7 @@ const MainComponent = () => {
         <Suspense fallback={<Loader onLoadComplete={() => setLoading(false)} />}>
 
           <AnimationRevealPage>
-            {/* Theme Toggle Button */}
-            <div style={{ position: 'fixed', top: '10px', right: '20px', zIndex: '50' }}>
-              <button onClick={toggleTheme} aria-label="Toggle Theme" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                {theme === 'light' ? (
-                  <FaMoon size={30} color="black" /> // Moon icon for dark mode
-                ) : (
-                  <FaSun size={30} color="yellow" /> // Sun icon for light mode
-                )}
-              </button>
-            </div>
-
+       
            
             <div ref={homeRef}>
               <Hero refs={{ homeRef, projectRef, EqpRef, ContactRef, CareerRef, TeamRef }} theme={theme} /> 
