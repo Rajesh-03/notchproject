@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import rmcvideo from "../../images/rmc.mp4";
-import crushervideo from "../../images/crusher.mp4";
+// import crushervideo from "../../images/crusher.mp4";
 import rmcplantImage from '../../images/rmc.JPG';
 import rmcplantVideo from '../../images/rmc.mp4';
 import crusher from "../../images/crusher.JPG";
-import crusherVideo from "../../images/crusher.mp4";
+// import crusherVideo from "../../images/crusher.mp4";
 import rmcsalem from "../../images/rmcsalem.MP4";
 import rmcsalemImage from "../../images/rmcsalem.JPG";
 import transit from "../../images/transit.JPG";
@@ -30,7 +30,7 @@ const TestingCard = () => {
     {
       title: "Crusher",
       image: crusher,
-      video: crusherVideo,
+      // video: crusherVideo,
     },
     {
       title: "CTB Plant",

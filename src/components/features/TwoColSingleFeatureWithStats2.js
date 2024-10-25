@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 /** @jsxImportSource @emotion/react */
 import tw from 'twin.macro';
 import rmcplantImage from '../../images/rmc.JPG';
-import rmcplantVideo from '../../images/rmc.mp4'; // Import RMC video
+import rmcplantVideo from '../../images/rmc.mp4'; 
 import crusher from "../../images/crusher.JPG";
-import crusherVideo from "../../images/crusher.mp4";
-import rmcsalem from "../../images/rmcsalem.MP4"; // Import RMC Salem video
+// import crusherVideo from "../../images/crusher.mp4";
+import rmcsalem from "../../images/rmcsalem.MP4";
 import rmcsalemImage from "../../images/rmcsalem.JPG";
 import transit from "../../images/transit.JPG"
 
@@ -43,7 +43,7 @@ const EquipmentList = () => {
     {
       title: "Crusher",
       image: crusher,
-      video: crusherVideo, // Add video property for Crusher
+      // video: crusherVideo, 
     },
     {
       title: "CTB Plant",
