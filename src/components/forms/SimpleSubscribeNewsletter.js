@@ -1,70 +1,93 @@
 import React from "react";
-import tw, { css } from "twin.macro";
-import { ReactComponent as EmailNewsletterIconBase } from "../../images/email-newsletter-icon.svg";
-import { Container as ContainerBase } from "components/misc/Layouts.js";
-import { SectionHeading } from "components/misc/Headings.js";
+import { FaFacebook, FaTwitter, FaLinkedin, FaPinterest } from "react-icons/fa";
+import "./Footer.css"; // Optional CSS file for custom styles
 
-const Container = tw(ContainerBase)`bg-secondary-800 -mx-8`;
-const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
-
-// Custom CSS for padding between 650px and 750px screen width
-const CustomPadding = css`
-  @media (min-width: 650px) and (max-width: 750px) {
-    padding: 20px; /* Add padding as per your requirement */
-  }
-`;
-
-const Row = tw.div`flex flex-col md:flex-row items-center justify-center px-8`;
-const TextColumn = tw.div`flex flex-col sm:flex-row items-center justify-center md:justify-start`;
-const EmailNewsletterIcon = tw(EmailNewsletterIconBase)`w-16 h-16 text-green-500`;
-const HeadingInfoContainer = tw.div`sm:ml-6 mt-6 sm:mt-0 text-center md:text-left`;
-const Heading = tw(SectionHeading)`text-white leading-none`;
-
-const FooterContent = tw.div`mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-screen-md mx-auto text-gray-400 text-sm text-center md:text-left`;
-const FooterColumn = tw.div`flex flex-col items-center md:items-start mb-8`; // Added margin-bottom for space between sections
-const FooterHeading = tw.h4`text-white font-bold text-lg mb-2`;
-const FooterItem = tw.p`text-white mb-1`;
-
-export default () => {
-  return (<Container css={CustomPadding}>
-      <Content>
-        <Row>
-          <TextColumn>
-            <EmailNewsletterIcon />
-            <HeadingInfoContainer>
-              <Heading>Contact Us</Heading>
-            </HeadingInfoContainer>
-          </TextColumn>
-        </Row>
-
-        {/* Footer Content */}
-        <FooterContent>
-          <FooterColumn>
-            <FooterHeading>Contact Information</FooterHeading>
-            <FooterItem>Head Office</FooterItem>
-            <FooterItem>Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu</FooterItem>
-            <FooterItem>Email: general@notchindiaprojects.com</FooterItem>
-            <FooterItem>Phone: +91 9005900536</FooterItem>
-            <FooterItem>Phone: +91 9360950001</FooterItem>
-          </FooterColumn>
-          <FooterColumn>
-            <FooterHeading>Registered Office</FooterHeading>
-            <FooterItem>Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu</FooterItem>
-            <FooterItem>Email: contracts@notchindiaprojects.com</FooterItem>
-            <FooterItem>Phone: +91 9005900536</FooterItem>
-            <FooterItem>Phone: +91 9360950001</FooterItem>
-          </FooterColumn>
-          <FooterColumn>
-            <FooterHeading>Useful Links</FooterHeading>
-            <FooterItem>About Us</FooterItem>
-            <FooterItem>Projects</FooterItem>
-            <FooterItem>Careers</FooterItem>
-            <FooterItem>Contact Us</FooterItem>
-          </FooterColumn>
-        </FooterContent>
-      </Content>
-    </Container>
-
-
-  );
+const FooterContent = ({ children }) => {
+  return <div className="footer_content">{children}</div>;
 };
+
+const FooterColumn = ({ children }) => {
+  return <div className="footer_column">{children}</div>;
+};
+
+const FooterHeading = ({ children }) => {
+  return <h3 className="footer_heading">{children}</h3>;
+};
+
+const FooterItem = ({ children }) => {
+  return <p className="footer_item">{children}</p>;
+};
+
+export default function Footer() {
+  return (
+    <footer className="new_footer_area bg_color">
+      <div className="new_footer_top">
+        <div className="container">
+          <div className="row">
+          
+
+            <div className="col-lg-4 col-md-6">
+              <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
+                <h3 className="f-title f_600 t_color f_size_18">Head Office</h3>
+                <ul className="list-unstyled f_list">
+                  <li><a href="#">Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu
+
+Email: general@notchindiaprojects.com
+
+Phone: +91 9005900536
+
+Phone: +91 9360950001</a></li>
+                 
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s">
+                <h3 className="f-title f_600 t_color f_size_18">Registered Office</h3>
+                <ul className="list-unstyled f_list">
+                  <li><a href="#">Poriyalar Nagar, Tiruppalai, Madurai, Tamil Nadu
+
+Email: contracts@notchindiaprojects.com
+
+Phone: +91 9005900536
+
+Phone: +91 9360950001</a></li>
+                 
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              {/* <div className="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"> */}
+                <h3 className="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                <div className="f_social_icon">
+                  <a href="#"><FaFacebook /></a>
+                  <a href="#"><FaTwitter /></a>
+                  <a href="#"><FaLinkedin /></a>
+                  <a href="#"><FaPinterest /></a>
+                </div>
+              {/* </div> */}
+            </div>
+          </div>
+        </div>
+
+
+        <div className="footer_bg">
+          <div className="footer_bg_one"></div>
+          <div className="footer_bg_two"></div>
+        </div>
+      </div>
+
+      <div className="footer_bottom">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 col-sm-7">
+              <p className="mb-0 f_400">© NotchIndiaProjects., 2024. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

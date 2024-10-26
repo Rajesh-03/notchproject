@@ -16,11 +16,17 @@ import user3bg from "../../images/userbg6.png";
 import user4bg from "../../images/userbg3.png";
 import user5bg from "../../images/userbg4.png";
 import user6bg from "../../images/userbg5.png";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
+
 
 const HeadingContainer = tw.div``;
 const Heading = tw(SectionHeading)`text-[#008C8C]`;
 const Subheading = tw(SubheadingBase)`text-center mb-3`;
 const Description = tw(SectionDescription)`mx-auto text-center`;
+const MoreEquipmentsButtonContainer = tw.div`flex justify-center mt-8`;
+const MoreEquipmentsButton = tw.button`py-2 px-6 bg-[#008C8C] text-white font-bold rounded-lg transition-transform transform hover:scale-105`;
+
 
 const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`;
 const Card = styled.div`
@@ -66,6 +72,7 @@ const CardLinks = styled.div`
     }
   }
 `;
+
 
 export default ({
   heading = "Meet These Fine Folks.",
@@ -145,6 +152,12 @@ export default ({
     },
   ]
 }) => {
+  const navigate = useNavigate();
+  const handleMoreEquipmentsClick = () => {
+    navigate('/team');
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+  
   return (
     <div style={{ backgroundColor: "whitesmoke" }}>
       <Container>
@@ -173,6 +186,11 @@ export default ({
               </Card>
             ))}
           </Cards>
+          <MoreEquipmentsButtonContainer>
+          <MoreEquipmentsButton onClick={handleMoreEquipmentsClick}>
+            More Team
+          </MoreEquipmentsButton>
+        </MoreEquipmentsButtonContainer>
         </ContentWithPaddingXl>
       </Container>
     </div>

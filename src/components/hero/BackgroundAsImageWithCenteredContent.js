@@ -2,38 +2,42 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 import "./back.css";
-import logo from "../../images/logotransparent.png"
+import logo from "../../images/logotransparent.png";
 
-// Styled components for the header and other elements can be defined here
 const Header = styled.header`
-  position: relative; /* Ensure it positions properly */
+  position: relative;
   display: flex;
-  align-items: center; /* Center align vertically */
-  padding: 1rem; /* Adjust padding as needed */
+  align-items: center;
+  padding: 1rem;
+  background: url('../../images/herobg.jpg') no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed; /* Ensure smooth loading */
 `;
 
 const Logo = styled.img`
-height: 120px; /* Keep height unchanged */
-  width: 120px; /* Keep width unchanged */
+  height: 120px;
+  width: 120px;
   position: absolute;
   top: 1rem;
   left: 2rem;
+  loading: "lazy"; /* Enable lazy loading */
 
-   @media (max-width: 768px) {
-    height: 90px; /* Keep height unchanged */
-    width: 90px; /* Keep width unchanged */
-    top: 0.5rem; /* Adjust top spacing */
-    left: 0.5rem; /* Adjust left spacing */
+  @media (max-width: 768px) {
+    height: 90px;
+    width: 90px;
+    top: 0.5rem;
+    left: 0.5rem;
   }
 `;
 
 const TextBox = styled.div`
-  margin-left: 110px; /* Maintain margin for desktop */
+  margin-left: 110px;
 
   @media (max-width: 768px) {
-    margin-left: 0; /* Remove margin for mobile */
-    padding: 1rem; /* Add padding for mobile */
-    text-align: center; /* Center text on mobile */
+    margin-left: 0;
+    padding: 1rem;
+    text-align: center;
   }
 `;
 
@@ -49,12 +53,12 @@ const Hero = ({ refs }) => {
       behavior: "smooth",
       block: "start",
     });
-    setMenuActive(false); // Close the menu after scrolling
+    setMenuActive(false);
   };
 
   return (
     <Header className="header">
-      <Logo src={logo} alt="Company Logo" /> 
+      <Logo src={logo} alt="Company Logo" loading="lazy" />
 
       <section>
         <div className="hamburger" onClick={toggleMenu}>
@@ -83,18 +87,17 @@ const Hero = ({ refs }) => {
       </section>
 
       <TextBox className="text-box">
-  <div className="text-content">
-    <h1>Building the Roads of Tomorrow</h1>
-    <p>
-      At NotchIndiaProjects, we are dedicated to providing high-quality road construction services that pave the way for a brighter future. Our team of experts utilizes the latest technologies and techniques to ensure safe, durable, and efficient roadways for all.
-    </p>
-    <p>
-      From urban streets to highways, we manage every project with precision and care, ensuring that our infrastructure meets the needs of our growing communities. Together, let's create pathways to progress!
-    </p>
-    <button className="btn-link" style={{background:"#00354f",color:"white",textDecoration:"none"}} >Request a Consultation</button>
-  </div>
-</TextBox>
-
+        <div className="text-content">
+          <h1>Building the Roads of Tomorrow</h1>
+          <p>
+            At NotchIndiaProjects, we are dedicated to providing high-quality road construction services that pave the way for a brighter future. Our team of experts utilizes the latest technologies and techniques to ensure safe, durable, and efficient roadways for all.
+          </p>
+          <p>
+            From urban streets to highways, we manage every project with precision and care, ensuring that our infrastructure meets the needs of our growing communities. Together, let's create pathways to progress!
+          </p>
+          <button className="btn-link" style={{ background: "#00354f", color: "white", textDecoration: "none" }}>Request a Consultation</button>
+        </div>
+      </TextBox>
     </Header>
   );
 };
